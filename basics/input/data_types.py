@@ -8,6 +8,7 @@ height = float(input("How tall are you (in meters)?"))
 # Gets the users weight and allocates it as a integer variable
 weight = float(input("How much do you weigh (in kilograms)?"))
 # Calculates the users bmi
-bmi = str(round(weight / height, 2))
+heightSq = float(pow(height, 2))
+bmi = float(round(weight / heightSq, 2))
 # Output
 print(f"{name} you are {age} and your bmi is {bmi}")
