@@ -2,7 +2,7 @@
 
 amount = int(input("What level of brightness is required?\n"))
 
-print("Adjusting brightness...")
+print("\nAdjusting brightness...\n")
 # defining an int variable
 number = 0
 # Checking if the user input is even
