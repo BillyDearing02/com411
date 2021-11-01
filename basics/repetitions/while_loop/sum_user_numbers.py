@@ -1,4 +1,4 @@
-# sets the input as an int/ getting user input
+# sets the input as an int/getting user input
 amount = int(input("How many number should I sum up?\n"))
 # setting counter to equal amount
 counter = amount
