@@ -9,6 +9,6 @@ print("\nReversing...\n")
 for count in phrase:
     # counts down so you get the reversed phrase
     number = number - 1
-    reversed = reversed + phrase[number]
+    reversed = count + reversed
 
 print(f"The phrase is: {reversed}")
