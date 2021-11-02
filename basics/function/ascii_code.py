@@ -8,4 +8,3 @@ while len(letter) != 1:
 # prints the ASCII code for whatever letter the user put in
 print(f"The ASCII code for {letter} is: {ord(letter)}")
 print("Program Ended!")
-
