@@ -21,7 +21,7 @@ def run():
     # sets the variables beep and bop to the user inputted weights
     beep, bop = weight()
     # asks the user to enter whether to calculate a sum or average
-    calculate = input("What would you like to calculate (sum or average)?")
+    calculate = input("What would you like to calculate (sum or average)?\n")
     if "sum" in calculate.lower():
         # allows for a dynamic print statement at the end
         calc = "sum"
@@ -33,7 +33,7 @@ def run():
         # gets the average of the weight from the pre-defined function
         ans = calc_avg_weight(beep,bop)
 
-    print(f"The {calc} of Beep and Bop's Weight is {ans}.")
+    print(f"\nThe {calc} of Beep and Bop's Weight is {ans}.")
 
 # Runs the program
 run()
