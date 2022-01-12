@@ -18,8 +18,15 @@ def welcome():
 
     :return: Does not return anything.
     """
-    # TODO: Your code here
+    # Sets the title to whatever welcome message is entered.
+    title = "COVID-19 (January) Data"
+    # makes the dashes as long as the message
+    dashes = len(title) * "-"
+    # output message
+    print(f"{dashes}\n{title}\n{dashes}")
+
     pass
+
 
 
 def error(msg):
@@ -33,7 +40,10 @@ def error(msg):
     :param msg: a string containing an error message
     :return: does not return anything
     """
-    # TODO: Your code here
+    # Sets error_msg to the msg passed into this function
+    error_msg = msg
+    # prints error message
+    print(f"{error_msg}")
     pass
 
 
@@ -55,7 +65,16 @@ def progress(operation, value):
     :param value: an integer indicating the amount of progress made
     :return: does not return anything
     """
-    # TODO: Your code here
+    # condition statement to check what value is equivalent to
+    if value == 0:
+        status = "has started"
+    if value in range(0,100):
+        status = "is in progress ({value}% completed)"
+    if value == 100:
+        status = "has completed"#
+    # output message
+    print(f"{operation} {status}.")
+
     pass
 
 
@@ -89,7 +108,28 @@ def menu(variant=0):
 
     :return: nothing if invalid selection otherwise an integer for a valid selection
     """
-    # TODO: Your code here
+    if bool(variant):
+        # Separate variables for the options allows a developer to change them easily and improves readability
+        opt_one = "[1] Process Data"
+        opt_two = "[2] Visualise Data"
+        opt_three = "[3] Export Data"
+        opt_four = "[4] Exit"
+
+    if variant == 1:
+        opt_one = "[1] Record by Serial Number"
+        opt_two = "[2] Records by Observation Date"
+        opt_three = "[3] Group Records by Country/Region"
+        opt_four = "[4] Summaries Records"
+
+    if variant == 2:
+        opt_one = "[1] Country/Region Pie Chart"
+        opt_two = "[2] Observations Chart"
+        opt_three = "[3] Animated Summary"
+
+    if variant == 3:
+        opt_one = "[1] All Data"
+        opt_two = "[2] Data for Specific Country/Region"
+
     pass
 
 
@@ -106,7 +146,7 @@ def total_records(num_records):
     :param num_records: the total number of records in the data set
     :return: Does not return anything
     """
-    # TODO: Your code here
+    print(f"There are {num_records} records in the data set.")
     pass
 
 
@@ -119,7 +159,9 @@ def serial_number():
 
     :return: the serial number for a record
     """
-    # TODO: Your code here
+    serial_num = int(input("Please enter a serial number for a record"))
+
+    return serial_num
     pass
 
 
@@ -137,7 +179,13 @@ def observation_dates():
 
     :return: a list of observation dates
     """
-    # TODO: Your code here
+
+    num_observation = int(input("Please enter the number of observation dates you wish to enter"))
+    observation_list = []
+    while num_observation != 0:
+        num_observation = num_observation - 1
+        observation_date = input("Please enter an observation dates (Please enter in mm/dd/yyyy format)")
+        observation_list.append(observation_date)
     pass
 
 
@@ -166,7 +214,7 @@ def display_record(record, cols=None):
     :param cols: A list of integer values that represent column indexes
     :return: Does not return anything
     """
-    # TODO: Your code here
+
     pass
 
 
