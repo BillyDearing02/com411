@@ -8,17 +8,18 @@ Note:   any user input/output should be done using the appropriate functions in 
         any visualisation should be done using the appropriate functions in the module 'visual'
 """
 
-
 # Task 10: Import required modules
-import tui as tui
+import tui
+import csv
+
 # Task 11: Create an empty list named 'covid_records'.
 # This will be used to store the data read from the source data file.
 covid_records = []
 
+
 def run():
     # Task 12: Call the function welcome of the module 'tui'.
     # This will display our welcome message when the program is executed.
-    welcome()
     # Task 13: Load the data.
     # - Use the appropriate function in the module 'tui' to display a message to indicate that the data loading
     # operation has started.
@@ -26,14 +27,27 @@ def run():
     # You should appropriately handle the case where the file cannot be found or loaded.
     # - Use the appropriate functions in the module 'tui' to display a message to indicate how many records have
     # been loaded and that the data loading operation has completed.
-    # TODO: Your code here
+    tui.welcome()
+    operation = "Loading Data"
+    value = 0
+    tui.progress(operation, value)
+    try:
+        csv_file = "data/covid_19_data.csv"
+        with open(csv_file) as src:
+            data = csv.reader(src)
+            headings = next(data)
+            for record in data:
+                covid_records.append(record)
+            value = 100
+            tui.progress(operation, value)
+    except IOError:
+        print("Cannot be found or loaded")
 
     while True:
         # Task 14: Using the appropriate function in the module 'tui', display a menu of options
         # for the different operations that can be performed on the data (menu variant 0).
         # Assign the selected option to a suitable local variable
-        # TODO: Your code here
-
+        tui.menu()
         # Task 15: Check if the user selected the option for processing data.  If so, then do the following:
         # - Use the appropriate function in the module tui to display a message to indicate that the data processing
         # operation has started.
@@ -77,7 +91,6 @@ def run():
         #       - Use the appropriate function in the module 'tui' to display the summary
         #       - Use the appropriate function in the module 'tui' to indicate that the summary
         #       process has completed.
-        # TODO: Your code here
 
         # Task 21: Check if the user selected the option for visualising data.
         # If so, then do the following:
@@ -88,8 +101,12 @@ def run():
         #   - call the appropriate function in the module 'visual'
         # - Use the appropriate function in the module 'tui' to display a message to indicate that the
         # data visualisation operation has completed.
-        # TODO: Your code here
-        
+        operation = "Processing Data"
+        value = 0
+        tui.progress(operation, value)
+        value = 100
+        tui.progress(operation, 100)
+
         # Task 25: Check if the user selected the option for exporting data.  If so, then do the following:
         # - Use the appropriate function in the module 'tui' to retrieve the type of data to be exported.
         # - Check what option has been selected

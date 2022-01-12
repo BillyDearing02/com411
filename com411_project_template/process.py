@@ -25,4 +25,16 @@ The required functions are as follows:
  
 """
 
-# TODO: Your code here
+def total_records():
+
+
+def record_serial():
+
+
+def observation_data_records():
+
+
+def country_region:
+
+
+def summary_records:

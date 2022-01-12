@@ -68,8 +68,8 @@ def progress(operation, value):
     # condition statement to check what value is equivalent to
     if value == 0:
         status = "has started"
-    if value in range(0,100):
-        status = "is in progress ({value}% completed)"
+    if value in range(1, 99):
+        status = f"is in progress ({value}% completed)"
     if value == 100:
         status = "has completed"#
     # output message
@@ -108,27 +108,41 @@ def menu(variant=0):
 
     :return: nothing if invalid selection otherwise an integer for a valid selection
     """
-    if bool(variant):
-        # Separate variables for the options allows a developer to change them easily and improves readability
+    if variant == 0:
         opt_one = "[1] Process Data"
         opt_two = "[2] Visualise Data"
         opt_three = "[3] Export Data"
         opt_four = "[4] Exit"
+        select = int(input(f"Please select from the following options: {opt_one}, {opt_two}, {opt_three} and {opt_four}"))
 
-    if variant == 1:
+    if select == 1:
+        operation = "Processing Data"
+        value = 0
+        progress(operation, value)
+        value = 100
+        progress(operation, value)
         opt_one = "[1] Record by Serial Number"
         opt_two = "[2] Records by Observation Date"
         opt_three = "[3] Group Records by Country/Region"
         opt_four = "[4] Summaries Records"
+        select = int(input(f"Please select from the following options: {opt_one}, {opt_two}, {opt_three} and {opt_four}"))
 
-    if variant == 2:
+        if select == 1:
+            operation = "Record Retrieval"
+            value = 0
+            progress(operation, value)
+
+
+    elif select == 2:
         opt_one = "[1] Country/Region Pie Chart"
         opt_two = "[2] Observations Chart"
         opt_three = "[3] Animated Summary"
+        select = int(input(f"Please select from the following options: {opt_one}, {opt_two}, {opt_three}"))
 
-    if variant == 3:
+    elif select == 3:
         opt_one = "[1] All Data"
         opt_two = "[2] Data for Specific Country/Region"
+        select = int(input(f"Please select from the following options: {opt_one}, {opt_two}"))
 
     pass
 
@@ -186,6 +200,8 @@ def observation_dates():
         num_observation = num_observation - 1
         observation_date = input("Please enter an observation dates (Please enter in mm/dd/yyyy format)")
         observation_list.append(observation_date)
+
+    return observation_list
     pass
 
 
@@ -214,7 +230,10 @@ def display_record(record, cols=None):
     :param cols: A list of integer values that represent column indexes
     :return: Does not return anything
     """
-
+    if cols is None:
+        print(record)
+    else:
+        print(record[cols])
     pass
 
 
@@ -243,4 +262,5 @@ def display_records():
     :param cols: A list of integer values that represent column indexes
     :return: Does not return anything
     """
-    # TODO: Your code here
+    records = []
+    cols = []
